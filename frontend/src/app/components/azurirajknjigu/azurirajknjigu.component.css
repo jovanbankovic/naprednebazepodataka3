@@ -1,0 +1,17 @@
+mat-card{
+    width: 50%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-form-field {
+    width: 100%
+  }
+  
+  .poruka {
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+    color: red;
+  }

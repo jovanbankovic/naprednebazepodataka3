@@ -1,0 +1,41 @@
+<div>
+    <mat-toolbar color="primary">Prijavi se
+    <span class="example-spacer"></span>
+    <button type="button" mat-button (click)="registracija()" >Registruj se</button>
+    <button type="button" mat-button (click)="zaboravljena()" >Zaboravljena lozinka</button>
+    <button type="button" mat-button (click)="gost()" >Nastavi kao gost</button>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-card>
+        <form (submit)="prijava(loginForm)" #loginForm='ngForm'>
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' name="korime" placeholder="Unesite korisnicko ime" [(ngModel)]="korime" #korimeInput="ngModel" required >
+                            <mat-error *ngIf="korimeInput.invalid">Unesite validno korisnicko ime</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="password" placeholder="Unesite lozinku" [(ngModel)]="lozinka" #passwordInput="ngModel" required>
+                            <mat-error *ngIf="passwordInput.invalid">Unesite validnu lozinku</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>    
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Prijava</button> 
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card> 
+</div>
+
+

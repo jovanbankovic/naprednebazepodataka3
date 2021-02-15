@@ -1,0 +1,95 @@
+<mat-card>
+    <form [formGroup]="form" (submit)="dodaj()" *ngIf="!zahtevPoslat"> 
+          <table>
+            <tr>
+                <td>
+                    <div class="slika">
+                        <img [src]="image" [alt]="form.value.ime">
+                    </div>
+                    <div>
+                        <button mat-stroked-button type="button" (click)="filePicker.click()">Izaberite sliku</button>
+                        <input type="file" #filePicker (change)="onImagePicked($event)">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <input matInput type='text' formControlName="naziv" placeholder="Unesite naziv knjige">
+                        <mat-error *ngIf="form.get('naziv').invalid">Niste uneli naziv</mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="2" formControlName="autori" placeholder="Unesite autore"></textarea>
+                        <mat-error *ngIf="form.get('autori').invalid">Niste uneli autore</mat-error>
+                      </mat-form-field>
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Datum izdavanja</mat-label>
+                        <input matInput formControlName="datum" [matDatepicker]="picker">  
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="form.get('datum').invalid">Niste izabrali datum</mat-error>
+                      </mat-form-field> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Zanr</mat-label>
+                        <mat-select formControlName="zanr" multiple>
+                          <mat-option  *ngFor="let zanr of zanrovi" [value]="zanr">{{zanr}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.get('zanr').invalid">Niste izabrali zanr</mat-error>
+                      </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="4" formControlName="opis" placeholder="Unesite opis knjige"></textarea>
+                        <mat-error *ngIf="form.get('opis').invalid">Niste uneli opis</mat-error>
+                      </mat-form-field> 
+                </td>
+            </tr>  
+            
+            
+            <br>
+            <tr>
+                <td style="text-align: center;">
+                    <button type="submit" mat-raised-button color='accent'>Dodaj knjigu</button> 
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <span class="poruka1">
+                        {{message}}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <table *ngIf="zahtevPoslat">
+        <tr>
+            <td>
+                <span class="poruka2">
+                    {{poruka}}
+                </span>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td style="text-align: center;">
+                <button type="submit" mat-raised-button color='primary' (click)="dodaj_jos()">Dodaj jos knjiga</button> 
+            </td>
+        </tr>
+        
+    </table>
+</mat-card> 

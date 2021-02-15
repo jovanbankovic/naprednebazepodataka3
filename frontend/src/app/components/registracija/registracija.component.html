@@ -1,0 +1,116 @@
+<div>
+    <mat-toolbar color="primary">Registruj se
+    <span class="example-spacer"></span>
+    <button type="button" mat-button (click)="prijava()">Prijavi se</button>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-card>
+        <form [formGroup]="form" (submit)="registracija()" *ngIf="!zahtevPoslat && form"> 
+              <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="ime" placeholder="Unesite ime">
+                            <mat-error *ngIf="form.get('ime').invalid">Niste uneli ime</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="prezime" placeholder="Unesite prezime" >
+                            <mat-error *ngIf="form.get('prezime').invalid">Niste uneli prezime</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="slika">
+                            <img [src]="image" [alt]="form.value.ime">
+                        </div>
+                        <div>
+                            <button mat-stroked-button type="button" (click)="filePicker.click()">Izaberite sliku</button>
+                            <input type="file" #filePicker (change)="onImagePicked($event)">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="korime" placeholder="Unesite korisnicko ime">
+                            <mat-error *ngIf="form.get('korime').invalid">Unesite validno korisnicko ime</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' formControlName="lozinka1" placeholder="Unesite lozinku">
+                            <mat-error *ngIf="form.get('lozinka1').invalid">Unesite validnu lozinku</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' formControlName="lozinka2" placeholder="Potvrdite lozinku">
+                            <mat-error *ngIf="form.get('lozinka2').invalid">Niste uneli potvrdu lozinke</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Datum rodjenja</mat-label>
+                            <input matInput formControlName="datum" [matDatepicker]="picker">  
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="form.get('datum').invalid">Niste izabrali datum</mat-error>
+                          </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="grad" placeholder="Unesite grad">
+                            <mat-error *ngIf="form.get('grad').invalid">Niste uneli grad</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="drzava" placeholder="Unesite drzavu">
+                            <mat-error *ngIf="form.get('drzava').invalid">Niste uneli drzavu</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='email' formControlName="email" placeholder="Unesite email adresu">
+                            <mat-error *ngIf="form.get('email').invalid">Unesite validan email</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <div class="g-recaptcha">
+                            <re-captcha (resolved)="resolved($event)" siteKey="6Lduw7oZAAAAAJZef33TTyyDHStvuprxXn-QXYCu"></re-captcha>
+                        </div>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Registracija</button> 
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <span *ngIf="zahtevPoslat" class="poruka">
+            {{message}}
+        </span>        
+    </mat-card> 
+</div>

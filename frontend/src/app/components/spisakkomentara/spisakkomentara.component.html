@@ -1,0 +1,33 @@
+<mat-card>
+    <table mat-table [dataSource]="komentari" class="mat-elevation-z8" *ngIf="komentari.length>0">
+
+          <ng-container matColumnDef="naziv">
+            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+            <td mat-cell *matCellDef="let element">
+                <a (click)="knjiga(element)" >{{element.naziv}}</a>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="autori">
+            <th mat-header-cell *matHeaderCellDef>Autor(i)</th>
+            <td mat-cell *matCellDef="let element">{{element.autori}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="ocena">
+            <th mat-header-cell *matHeaderCellDef>Ocena</th>
+            <td mat-cell *matCellDef="let element">{{element.ocena}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="komentar">
+            <th mat-header-cell *matHeaderCellDef>Komentar</th>
+            <td mat-cell *matCellDef="let element">{{element.tekst}}</td>
+          </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <span *ngIf="komentari.length==0">
+      <h2>Niste ostavili nijedan komentar!</h2>
+    </span>
+</mat-card>

@@ -1,0 +1,108 @@
+img {
+    height: 250px;
+    width: 200px;   
+    
+}
+
+.div1 {
+    margin-top: 40px;
+    margin-left: 80px;
+    display: inline-block;
+}
+
+.div1:hover {
+    -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5);
+  transform: scale(1.2); 
+}
+
+.div2 {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align:top;
+}
+
+
+.prvi {
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: brown;
+}
+
+.drugi {
+    font-size: 21px;
+    width: 400px;
+}
+
+.div3{
+    margin-top: 20px;
+    margin-left: 600px;
+    display: inline-block;
+    vertical-align:top;
+}
+
+.div4{
+    margin-top: 20px;
+}
+
+.div5{
+    margin-top: 20px;
+    font-style: normal;
+    font-size: large;
+    font-weight: bolder;
+    color: indigo;
+    text-decoration: underline;
+}
+
+.div6{
+    margin-top: 20px;  
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+    
+}
+
+.div7{
+    margin-top: 20px;
+    font-style: normal;
+    font-size: large;
+    font-weight: bolder;
+    color: indigo;
+    text-decoration: underline;
+
+}
+
+.kom1{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+  .card1{
+    width: 40%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+.card2 {
+    width: 20%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    display: inline-block
+}
+
+.zvezda {
+    color: yellow;
+    height: 20px;
+    width: 25px;
+    line-height: 20px;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline  indigo;
+  }

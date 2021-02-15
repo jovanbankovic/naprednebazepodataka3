@@ -1,0 +1,73 @@
+<mat-card>
+    <form (submit)="azuriranje(azurForm)" #azurForm='ngForm'>
+        <table>
+            <tr>
+                <td>
+                    <img [src]="knjiga.slikaPutanja" [alt]="knjiga.naziv" height="230px" width="200px">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <input matInput type='text' name="naziv" placeholder="Unesite naziv" [(ngModel)]="knjiga.naziv" #nazivInput="ngModel" required disabled>
+                        <mat-error *ngIf="nazivInput.invalid">Niste uneli naziv</mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="2" name="autori" placeholder="Unesite autore" [(ngModel)]="knjiga.autori" #autoriInput="ngModel" required disabled></textarea>
+                        <mat-error *ngIf="autoriInput.invalid">Niste uneli autore</mat-error>
+                      </mat-form-field>
+                </td>
+            </tr>
+            <br>  
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Datum izdavanja</mat-label>
+                        <input matInput name="datum" [matDatepicker]="picker" [(ngModel)]="knjiga.datum" #datumInput="ngModel" required>  
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="datumInput.invalid">Niste izabrali datum</mat-error>
+                      </mat-form-field> 
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Zanr(ovi)</mat-label>
+                        <mat-select name="zanrovi" multiple [(ngModel)]="knjiga.zanrovi" #zanroviInput="ngModel" required >
+                          <mat-option  *ngFor="let zanr of zanrovi" [value]="zanr">{{zanr}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="zanroviInput.invalid">Niste izabrali zanr</mat-error>
+                      </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="4" name="opis" placeholder="Unesite opis knjige" [(ngModel)]="knjiga.opis" #opisInput="ngModel" required ></textarea>
+                        <mat-error *ngIf="opisInput.invalid">Niste uneli opis</mat-error>
+                      </mat-form-field> 
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <button type="submit" mat-raised-button color='accent'>Sacuvaj</button> 
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <span class="poruka">
+                        {{poruka}}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</mat-card> 

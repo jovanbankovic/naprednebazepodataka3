@@ -1,0 +1,15 @@
+mat-card {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 75%;
+  }
+
+  .poruka {
+  font-style: normal;
+  font-size: large;
+  font-weight: initial;
+}

@@ -1,0 +1,14 @@
+mat-card{
+    margin-top: 50px; 
+    display: flex; 
+    justify-content: center;
+    width: 100%;
+}
+
+mat-form-field {
+    width: 80%;
+}
+
+mat-vertical-stepper{
+    width: 130%
+}

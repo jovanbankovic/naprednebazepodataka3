@@ -1,0 +1,52 @@
+img {
+    height: 250px;
+    width: 200px;   
+    
+}
+
+.div1 {
+    margin-top: 40px;
+    margin-left: 80px;
+    display: inline-block;
+}
+
+.div1:hover {
+    -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5);
+  transform: scale(1.2); 
+}
+
+.div2 {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align:top;
+}
+
+.div3{
+    margin-top: 20px;
+    margin-right: 20px;
+    vertical-align:top;
+    float: right;
+}
+
+.prvi {
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: brown;
+}
+
+.drugi {
+    font-size: 21px;
+    width: 400px;
+}
+
+.card2 {
+    width: 20%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    display: inline-block
+}
+
+

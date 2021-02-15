@@ -1,0 +1,46 @@
+<div>
+    <mat-toolbar color="primary">Potvrda lozinke
+    <span class="example-spacer"></span>
+    <button type="button" mat-button (click)="prijava()" >Vrati se na prijavu</button>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-card>
+        <form (submit)="potvrda(loginForm)" #loginForm='ngForm'>
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="lozinka1" placeholder="Unesite novu lozinku" ngModel #lozinka1Input="ngModel" required >
+                            <mat-error *ngIf="lozinka1Input.invalid">Niste uneli validnu lozinku</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="lozinka2" placeholder="Potvrdite novu lozinku" ngModel #lozinka2Input="ngModel" required>
+                            <mat-error *ngIf="lozinka2Input.invalid">Niste potvrdili novu lozinku</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>    
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Potvrda</button> 
+                    </td>
+                </tr>
+                <br>
+                <br>
+                <!--tr *ngIf="poruka != '' ">
+                    <td>
+                        <span class="poruka">
+                            {{poruka}}
+                        </span>
+                    </td>
+                </tr-->
+            </table>
+        </form>
+    </mat-card> 
+</div>

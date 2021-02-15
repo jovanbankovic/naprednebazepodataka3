@@ -1,0 +1,38 @@
+<div>
+    <mat-toolbar color="primary">Zaboravili ste lozinku?
+    <span class="example-spacer"></span>
+
+    <button type="button" mat-button (click)="povratak()">Vrati se na prijavu</button>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-card>
+        <form (submit)="provera(loginForm)" #loginForm='ngForm' *ngIf="!poslato">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='email' name="email" placeholder="Unesite Vasu e-mail adresu" [(ngModel)]="email" #emailInput="ngModel" required email>
+                            <mat-error *ngIf="emailInput.invalid">Niste popunili polje</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>    
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Provera</button> 
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <!--span class="poruka1">
+                {{poruka}}
+            </span-->
+        </form>
+        <span class="poruka" *ngIf="poslato">
+            Link za potvrdu je poslat na vasu email adresu, molimo Vas proverite prijemno sanduce!
+            <br>
+            <br>
+        </span>
+    </mat-card> 
+</div>

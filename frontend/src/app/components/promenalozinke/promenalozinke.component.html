@@ -1,0 +1,47 @@
+<div>
+    <mat-card>
+        <form (submit)="promeni(loginForm)" #loginForm='ngForm'>
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="stara_lozinka" placeholder="Unesite staru lozinku" [(ngModel)]="stara_lozinka" #staraInput="ngModel" required >
+                            <mat-error *ngIf="staraInput.invalid">Niste popunili polje</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="nova_lozinka1" placeholder="Unesite novu lozinku" [(ngModel)]="nova_lozinka1" #nova1Input="ngModel" required >
+                            <mat-error *ngIf="nova1Input.invalid">Niste popunili polje</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='password' name="nova_lozinka2" placeholder="Potvrdite novu lozinku" [(ngModel)]="nova_lozinka2" #nova2Input="ngModel" required >
+                            <mat-error *ngIf="nova2Input.invalid">Niste popunili polje</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <br>    
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Promeni lozinku</button> 
+                    </td>
+                </tr>
+                <br>
+                <br>
+                <!--tr *ngIf="poruka != '' ">
+                    <td>
+                        <span class="poruka">
+                            {{poruka}}
+                        </span>
+                    </td>
+                </tr-->
+            </table>
+        </form>
+    </mat-card> 
+</div>

@@ -1,0 +1,21 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-card{
+  width: 50%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.poruka {
+  font-style: normal;
+  font-size: medium;
+  font-weight: bolder;
+  color: red;
+}
+
+mat-form-field{
+  width: 100%;
+}

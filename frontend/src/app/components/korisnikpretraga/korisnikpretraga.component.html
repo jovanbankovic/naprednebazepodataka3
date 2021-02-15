@@ -1,0 +1,78 @@
+<h1>Pretraga korisnika</h1>
+<div>
+    <mat-card>
+      <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <mat-form-field>
+          <input matInput type="text" name="searchTerm1" placeholder="Pretraga po imenu" [(ngModel)]="searchTerm1">
+      </mat-form-field>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <mat-form-field>
+          <input matInput type="text" name="searchTerm2" placeholder="Pretraga po prezimenu" [(ngModel)]="searchTerm2">
+      </mat-form-field>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <mat-form-field>
+          <input matInput type="text" name="searchTerm3" placeholder="Pretraga po korisnickom imenu" [(ngModel)]="searchTerm3">
+      </mat-form-field>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <mat-form-field>
+          <input matInput type="text" name="searchTerm4" placeholder="Pretraga po adresi elektronske poste" [(ngModel)]="searchTerm4">
+      </mat-form-field>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <button mat-icon-button color='primary' aria-label="Search icon" (click)="pretraga()">
+           <mat-icon>search</mat-icon>
+      </button>
+      </div>
+       
+          <br>
+          <br>
+          <div>
+            <table mat-table [dataSource]="izabrani_korisnici" class="mat-elevation-z8" *ngIf="(izabrani_korisnici.length > 0) && (postoji == true)">
+
+              <ng-container matColumnDef="slika">
+                <th mat-header-cell *matHeaderCellDef>Slika</th>
+                <td mat-cell *matCellDef="let element " >
+                  <a>
+                    <img [src]="element.slikaPutanja" [alt]="element.naziv">
+                  </a>
+                </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="ime">
+                  <th mat-header-cell *matHeaderCellDef>Ime</th>
+                  <td mat-cell *matCellDef="let element " >{{element.ime}}</td>
+                </ng-container>
+      
+                <ng-container matColumnDef="prezime">
+                  <th mat-header-cell *matHeaderCellDef>Prezime</th>
+                  <td mat-cell *matCellDef="let element">{{element.prezime}}</td>
+                </ng-container>
+      
+                <ng-container matColumnDef="korime">
+                  <th mat-header-cell *matHeaderCellDef>Korisnicko ime</th>
+                  <td mat-cell *matCellDef="let element; let i=index">{{element.korime}}</td>
+                </ng-container>
+      
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef>Email</th>
+                  <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                </ng-container>
+      
+                <ng-container matColumnDef="pristupi">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element">
+                    <button type="button" mat-raised-button color="accent" (click)="pristupi(element)">Pristupi korisniku</button>
+                  </td>
+                </ng-container>
+      
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          </div>
+         
+          <div *ngIf="!postoji" style="text-align: center; margin-top: 50px;">
+            <span class="poruka">
+              Ne postoji korisnik sa tim podacima!
+            </span>
+          </div>
+    </mat-card>
+</div>

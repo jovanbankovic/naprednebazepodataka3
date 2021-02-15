@@ -1,0 +1,48 @@
+<mat-card>
+    <table mat-table [dataSource]="knjige" class="mat-elevation-z8" *ngIf="knjige.length != 0">
+
+        <ng-container matColumnDef="naziv">
+            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+            <td mat-cell *matCellDef="let element">{{element.naziv}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="autori">
+            <th mat-header-cell *matHeaderCellDef>Autor(i)</th>
+            <td mat-cell *matCellDef="let element">{{element.autori}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="datum">
+            <th mat-header-cell *matHeaderCellDef>Datum izdavanja</th>
+            <td mat-cell *matCellDef="let element">{{element.datum | date}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="zanr">
+            <th mat-header-cell *matHeaderCellDef>Zanr(ovi)</th>
+            <td mat-cell *matCellDef="let element">{{element.zanrovi}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="odobrena">
+            <th mat-header-cell *matHeaderCellDef>Odobrena</th>
+            <td mat-cell *matCellDef="let element">
+                <span *ngIf="element.odobrena">Da</span>
+                <span *ngIf="!element.odobrena">Ne</span>
+
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="odobravanje">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="odobri(element)">Odobri</button> 
+                &nbsp; 
+                <button type="button" mat-raised-button color="warn" (click)="odbaci(element)">Odbaci</button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>   
+    <span class="poruka" *ngIf="knjige.length == 0">
+        Trenutno nema nijednog zahteva
+    </span> 
+</mat-card>

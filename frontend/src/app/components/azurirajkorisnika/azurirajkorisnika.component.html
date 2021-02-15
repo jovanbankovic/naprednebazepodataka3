@@ -1,0 +1,76 @@
+<div>
+    <mat-card>
+        <form [formGroup]="form" (submit)="izmena()" *ngIf="form"> 
+              <table>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="ime" placeholder="Unesite ime">
+                            <mat-error *ngIf="form.get('ime').invalid">Niste uneli ime</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="prezime" placeholder="Unesite prezime" >
+                            <mat-error *ngIf="form.get('prezime').invalid">Niste uneli prezime</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="slika">
+                            <img [src]="image" [alt]="form.value.ime">
+                        </div>
+                        <div>
+                            <button mat-stroked-button type="button" (click)="filePicker.click()">Izaberite sliku</button>
+                            <input type="file" #filePicker (change)="onImagePicked($event)">
+                        </div>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Datum rodjenja</mat-label>
+                            <input matInput formControlName="datum" [matDatepicker]="picker">  
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="form.get('datum').invalid">Niste izabrali datum</mat-error>
+                          </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="grad" placeholder="Unesite grad">
+                            <mat-error *ngIf="form.get('grad').invalid">Niste uneli grad</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='text' formControlName="drzava" placeholder="Unesite drzavu">
+                            <mat-error *ngIf="form.get('drzava').invalid">Niste uneli drzavu</mat-error>
+                        </mat-form-field> 
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput type='email' formControlName="email" placeholder="Unesite email adresu">
+                            <mat-error *ngIf="form.get('email').invalid">Unesite validan email</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr> 
+                <br>
+                <tr>
+                    <td style="text-align: center;">
+                        <button type="submit" mat-raised-button color='accent'>Izmena</button> 
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card> 
+</div>

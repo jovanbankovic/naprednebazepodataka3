@@ -1,0 +1,42 @@
+.naslov {
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+    color: indigo;
+  }
+
+  .poruka {
+    font-style: normal;
+    font-size: larger;
+    font-weight: initial;
+    color: indigo;
+  }
+
+  mat-card {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+  }
+
+  .card1{
+    width: 40%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card2 {
+    width: 20%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    display: inline-block
+}
+
+.dugme{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}

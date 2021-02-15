@@ -1,0 +1,165 @@
+<h3 style="text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 24px; color: indigo; "> Dobrodosli na profil korisnika: {{korisnik.korime}} </h3>
+
+<div class="desno">
+    <div class="poruka">
+        <span style="text-align: center;" *ngIf="datum != null">
+            Poslednji put prijavljen: {{datum | date: 'short'}}<!--Ovde treba da ide poruka-->
+        </span>
+        <span style="text-align: center;" *ngIf="datum == null">
+            Korisnik se nije prijavljivao!<!--Ovde treba da ide poruka-->
+        </span>
+    </div>
+    <br>
+    <mat-card >
+        <div class="div1">
+            <img [src]="korisnik.slikaPutanja" [alt]="korisnik.ime">
+        </div>
+        <div class="div2">
+            <table>
+                 <tr>
+                    <td>Ime:</td>
+                    <td>{{korisnik.ime}}</td>
+                </tr>
+                <tr>
+                    <td>Prezime: </td>
+                    <td>{{korisnik.prezime}}</td>
+                </tr>
+                <tr>
+                    <td>Korisnicko ime:</td>
+                    <td>{{korisnik.korime}}</td>
+                </tr>
+                <tr>
+                    <td>Datum rodjenja: </td>
+                    <td>{{korisnik.datum | date}}</td>
+                </tr>
+                <tr>
+                    <td>Grad/Drzava: </td>
+                    <td>{{korisnik.grad}}/{{korisnik.drzava}}</td>
+                </tr>
+                <tr>
+                    <td>email: </td>
+                    <td>{{korisnik.email}}</td>
+                </tr>
+            </table>
+        </div> 
+    </mat-card>
+    <br>
+    <br>
+     
+   
+    <div style="justify-content: center; display: flex;">
+        <span *ngIf="!pracenje">
+            <button mat-raised-button color="primary" (click)="zaprati()">Zaprati korisnika</button>
+        </span>
+        <span *ngIf="pracenje">
+            <button mat-raised-button color="primary" (click)="otprati()">Otprati korisnika</button>
+        </span>
+    </div>  
+</div>
+
+<mat-card class="card2">
+    <h2>Trenutno se citaju</h2>
+    <table mat-table [dataSource]="trenutno" class="mat-elevation-z8" *ngIf="trenutno.length>0">
+
+        <ng-container matColumnDef="naziv">
+            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+            <td mat-cell *matCellDef="let element">{{element.naziv}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="autori">
+            <th mat-header-cell *matHeaderCellDef>Autor(i)</th>
+            <td mat-cell *matCellDef="let element">{{element.autori}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="pristupi">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="pristupi(element)">Pristupi</button> 
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>   
+    <mat-paginator [length]="ukupno_trenutno" [pageSize]="trenutno_po_strani" [pageSizeOptions]="trenutnoSizeOptions" 
+    (page)="trenutno_promena($event)" *ngIf="trenutno.length>0"></mat-paginator>
+    <span *ngIf="trenutno.length==0" class="poruka">
+        Trenutno se ne cita nijedna knjiga!
+    </span>
+</mat-card>
+
+<mat-card class="card2">
+    <h2>Lista za citanje</h2>
+    <table mat-table [dataSource]="lista" class="mat-elevation-z8" *ngIf="lista.length>0">
+
+        <ng-container matColumnDef="naziv">
+            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+            <td mat-cell *matCellDef="let element">{{element.naziv}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="autori">
+            <th mat-header-cell *matHeaderCellDef>Autor(i)</th>
+            <td mat-cell *matCellDef="let element">{{element.autori}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="pristupi">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="pristupi(element)">Pristupi</button> 
+                &nbsp; 
+                <!--button type="button" mat-raised-button color="warn" (click)="ukloni(element)">Ukloni</button-->
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>   
+    <mat-paginator [length]="ukupno_lista" [pageSize]="lista_po_strani" [pageSizeOptions]="listaSizeOptions" 
+    (page)="lista_promena($event)" *ngIf="lista.length>0"></mat-paginator>
+    <span *ngIf="lista.length==0" class="poruka">
+        Lista za citanje je prazna!
+    </span>
+</mat-card>
+
+<mat-card class="card2">
+    <h2>Procitane knjige</h2>
+    <table mat-table [dataSource]="procitano" class="mat-elevation-z8" *ngIf="procitano.length>0">
+
+        <ng-container matColumnDef="naziv">
+            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+            <td mat-cell *matCellDef="let element">{{element.naziv}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="autori">
+            <th mat-header-cell *matHeaderCellDef>Autor(i)</th>
+            <td mat-cell *matCellDef="let element">{{element.autori}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="pristupi">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="pristupi(element)">Pristupi</button> 
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>   
+    <mat-paginator [length]="ukupno_procitane" [pageSize]="procitane_po_strani" [pageSizeOptions]="procitaneSizeOptions" 
+    (page)="procitane_promena($event)" *ngIf="procitano.length>0"></mat-paginator>
+    <span *ngIf="procitano.length==0" class="poruka">
+        Nema procitanih knjiga!
+    </span>
+</mat-card>
+<br>
+<br>
+<div *ngIf="pieChartLabels.length > 0" >
+    <canvas baseChart
+            height="40"
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType">
+    </canvas>
+</div>
+<br>
+<br>

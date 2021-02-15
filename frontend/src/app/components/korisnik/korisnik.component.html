@@ -1,0 +1,20 @@
+<div>
+    <mat-toolbar color="primary">
+        <span *ngIf="!korisnik.privilegije">
+            Profil korisnika
+        </span>
+        <span *ngIf="korisnik.privilegije">
+            Profil moderatora
+        </span>
+    &nbsp;&nbsp;    
+    <a mat-button routerLink="/korisnik/informacije" routerLinkActive="mat-accent">Info</a> 
+    <a mat-button routerLink="/korisnik/desavanja" routerLinkActive="mat-accent">Desavanja</a> 
+    <a mat-button routerLink="/korisnik/spisak" routerLinkActive="mat-accent">Spisak komentara</a> 
+    <a mat-button routerLink="/korisnik/dodaj" routerLinkActive="mat-accent">Dodaj knjigu</a> 
+    <a mat-button routerLink="/korisnik/odobri" routerLinkActive="mat-accent" *ngIf="korisnik.privilegije">Odobri knjige</a> 
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="/korisnik/promena" routerLinkActive="mat-accent">Promeni lozinku</a>
+    <button type="button" mat-button (click)="izlogujse()">Izloguj se</button>
+    </mat-toolbar>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,14 @@
+<div>
+    <mat-toolbar color="primary">Administrator
+    <a mat-button routerLink="/administrator/cekanje" routerLinkActive="mat-accent">Zahtevi korisnika</a> 
+    <a mat-button routerLink="/administrator/registrovani" routerLinkActive="mat-accent">Registrovani korisnici</a>  
+    <a mat-button routerLink="/administrator/dodaj" routerLinkActive="mat-accent">Dodaj knjigu</a> 
+    <a mat-button routerLink="/administrator/odobri" routerLinkActive="mat-accent">Odobri knjige</a>
+    <a mat-button routerLink="/administrator/pregled" routerLinkActive="mat-accent">Pregled knjiga</a>
+    <a mat-button routerLink="/administrator/zanrovi" routerLinkActive="mat-accent">Zanrovi</a> 
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="/administrator/promena" routerLinkActive="mat-accent">Promeni lozinku</a>
+    <button type="button" mat-button (click)="izlogujse()">Izloguj se</button>
+    </mat-toolbar>
+</div>
+<router-outlet></router-outlet>

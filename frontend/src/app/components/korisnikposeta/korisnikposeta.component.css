@@ -1,0 +1,46 @@
+img {
+    height:150px;
+    width: 150px;
+}
+
+.card1 {
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.card2{
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.div1{
+    display: inline-block;
+}
+
+.div2{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+table{
+    width: 100%;
+}
+
+mat-paginator {
+    margin-top: 10px;
+}
+
+.poruka {
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+    color: indigo;
+  }
+
+.desno {
+    float: right; 
+    margin-right: 20px;
+    margin-top: 20px;
+}

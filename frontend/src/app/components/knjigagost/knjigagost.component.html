@@ -1,0 +1,84 @@
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+    <div class="div1">
+        <img [src]='knjiga.slikaPutanja' [alt]="knjiga.naziv">
+    </div>
+    
+    <div class="div2">
+        <table>
+            <tr>
+                <td class="prvi">Naziv knjige: </td>
+                <td class="drugi">{{knjiga.naziv}}</td>
+            </tr>
+            <br>    
+            <tr>
+                <td class="prvi">Autor(i): </td>
+                <td class="drugi">{{knjiga.autori}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Datum izdavanja:</td>
+                <td class="drugi">{{knjiga.datum | date}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Zanr(ovi): </td>
+                <td class="drugi">{{knjiga.zanrovi}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Kratak opis: </td>
+                <td class="drugi">{{knjiga.opis}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Prosecna ocena: </td>
+                <td class="drugi">{{knjiga.prosek}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!--div class="div3">
+    <button type="button" mat-raised-button color="accent" (click)="povratak()" >Vrati se nazad</button>
+</div-->
+<mat-divider style="margin-top: 20px;"></mat-divider>
+<!--div style="margin-top: 30px;">
+    <mat-card>
+
+    </mat-card>
+</div-->
+<h1 style="text-align: center; margin-top: 1rem; color:indigo;">Komentari</h1>
+
+<mat-card class="card2" *ngFor="let komentar of komentari; let i=index">
+    <table >
+        <!--tr>
+            <td>
+                Autor: 
+            </td>
+            <td>
+                {{komentari[i].korime}}
+            </td>
+        </tr-->
+        <tr>
+            <td>
+                Tekst: 
+            </td>
+            <td>
+                {{komentari[i].tekst}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ocena: 
+            </td>
+            <td>
+                {{komentari[i].ocena}}
+            </td>
+        </tr>
+    </table>
+</mat-card>
+    
+
+
+

@@ -1,0 +1,67 @@
+<div> 
+    <mat-card>
+        <form>
+            <mat-vertical-stepper #stepper>
+                <mat-step >
+                    <ng-template matStepLabel>Naziv desavanja</ng-template>
+                    <mat-form-field>
+                        <mat-label>Unesite naziv</mat-label>
+                        <input matInput name="naziv" [(ngModel)]="naziv" required>
+                      </mat-form-field>
+                      <div>
+                        <button type="button" mat-button matStepperNext>Sledece</button>
+                      </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Vreme pocetka</ng-template>
+                    <mat-form-field>
+                        <mat-label>Unesite vreme pocetka</mat-label>
+                        <input matInput name="pocetak" type="datetime-local" [(ngModel)]="pocetak" required>
+                      </mat-form-field>
+                      <br>
+                      <mat-checkbox name="pocinje_odmah" [(ngModel)]="pocinje_odmah">Pocinje odmah!</mat-checkbox>
+                      <br>
+                      <br>
+                      <div>
+                        <button type="button" mat-button matStepperPrevious>Prethodno</button>
+                        <button type="button" mat-button matStepperNext>Sledece</button>
+                      </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Vreme kraja</ng-template>
+                    <mat-form-field>
+                        <mat-label>Unesite vreme kraja</mat-label>
+                        <input matInput name="kraj" type="datetime-local" placeholder="Kraj" [(ngModel)]="kraj" required>
+                      </mat-form-field>
+                      <br>
+                      <mat-checkbox name="nedefinisan" [(ngModel)]="nedefinisan">Nedefinisan kraj!</mat-checkbox>
+                      <br>
+                      <br>
+                      <div>
+                        <button type="button" mat-button matStepperPrevious>Prethodno</button>
+                        <button type="button" mat-button matStepperNext>Sledece</button>
+                      </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Opis desavanja</ng-template>
+                    <mat-form-field>
+                        <mat-label>Unesite opis desavanja</mat-label>
+                        <textarea matInput rows="6" name="opis" [(ngModel)]="opis" required></textarea>
+                      </mat-form-field>
+                      <div>
+                        <button type="button" mat-button matStepperPrevious>Prethodno</button>
+                        <button type="button" mat-button matStepperNext>Sledece</button>
+                      </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Zavrseno</ng-template>
+                    <p>Zavrsili ste.</p>
+                    <div>
+                      <button mat-button matStepperPrevious>Prethodno</button>
+                      <button mat-button (click)="napravi()">Napravi desavanje</button>
+                    </div>
+                  </mat-step>
+            </mat-vertical-stepper>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,225 @@
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+    <div class="div1">
+        <img [src]='knjiga.slikaPutanja' [alt]="knjiga.naziv"> 
+    </div>
+    
+    <div class="div2">
+        <table>
+            <tr>
+                <td class="prvi">Naziv knjige: </td>
+                <td class="drugi">{{knjiga.naziv}}</td>
+            </tr>
+            <br>    
+            <tr>
+                <td class="prvi">Autor(i): </td>
+                <td class="drugi">{{knjiga.autori}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Datum izdavanja:</td>
+                <td class="drugi">{{knjiga.datum | date}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Zanr(ovi): </td>
+                <td class="drugi">{{knjiga.zanrovi}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Kratak opis: </td>
+                <td class="drugi">{{knjiga.opis}}</td>
+            </tr>
+            <br>
+            <tr>
+                <td class="prvi">Prosecna ocena: </td>
+                <td class="drugi">{{knjiga.prosek}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<!---div class="div3">
+    <button type="button" mat-raised-button color="accent" (click)="povratak()" >Pretraga</button>
+</div-->
+<mat-divider style="margin-top: 20px;"></mat-divider>
+
+<div  style="display: flex; justify-content: center;">
+    <div class="div4" *ngIf="status == 'ne_postoji'">
+        <button type="button" mat-raised-button color="accent" (click)="stavi()" >Dodaj u listu za citanje</button>
+        &nbsp;
+        <button type="button" mat-raised-button color="accent" (click)="zapocni()">Zapocni sa citanjem</button>
+        &nbsp;  
+        <button type="button" mat-raised-button color="accent" (click)="procitao()">Knjiga je procitana</button>
+    </div>
+    
+    <div class="div5" *ngIf="status == 'dodata'">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    Knjiga se nalazi na vasoj listi za citanje!
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <button type="button" mat-raised-button color="accent" (click)="zapocni()">Zapocni sa citanjem</button>
+                </td>
+                <td>
+                    <button type="button" mat-raised-button color="accent" (click)="ukloni()">Ukloni iz liste</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="div6" *ngIf="status == 'trenutno'">
+        <span style="text-align: center; text-decoration: underline; ">Napredak u citanju:</span>
+        <form (change)="promena()" >
+            <table>
+                <tr>
+                    <td>
+                        Broj strana:
+                    </td>
+                    <td>
+                        <mat-form-field  style="width: 50%;">
+                            <input matInput type='number' name="strana" [(ngModel)]="strana" >
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Procitano strana:
+                    </td>
+                    <td>
+                        <mat-form-field style="width: 50%;">
+                            <input matInput type='number' name="procitano" [(ngModel)]="procitano" >
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <br>
+        <mat-progress-bar   [value]="vrednost"></mat-progress-bar> 
+    </div>
+    
+    <div class="div7" *ngIf="status == 'procitana'">
+        <mat-card>
+        <h1 style="font-weight: bold;color: indigo;">Knjiga je procitana!</h1>
+        </mat-card>
+    </div>
+</div>
+
+
+<mat-divider style="margin-top: 20px;"></mat-divider>
+
+<h1 style="text-align: center; margin-top: 1rem; color:indigo;">Komentari</h1>
+
+<mat-card class="card2" *ngFor="let komentar of komentari; let i=index">
+    <table >
+        <tr>
+            <td>
+                Autor: 
+            </td>
+            <td>
+                <a (click)="korisnik(komentar)" *ngIf="korime != komentar.korime">{{komentari[i].korime}}</a>
+                <span *ngIf="korime == komentar.korime">{{komentari[i].korime}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tekst: 
+            </td>
+            <td>
+                {{komentari[i].tekst}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ocena: 
+            </td>
+            <td>
+                {{komentari[i].ocena}}
+            </td>
+        </tr>
+    </table>
+</mat-card>
+
+<div class="kom1" *ngIf="!uneo">
+    <button type="button" mat-raised-button color="accent" (click)="unesite_komentar()">Unesite komentar</button>
+</div>
+<div class="kom1" *ngIf="uneo">
+    <button type="button" mat-raised-button color="accent" (click)="promeni_svoj_komentar()">Promenite svoj komentar</button>
+</div>
+
+<mat-card class="card1" *ngIf="vidljiv && (this.vrednost >=50) ">
+    <form (submit)="unesi(unesiForm)" #unesiForm='ngForm' >
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="6" name="komentar" placeholder="Komentar" maxlength="1000" [(ngModel)]="tekst"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: gray;">Ocena knjige</td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="zvezda" mat-icon-button  *ngFor="let ratingId of ratingArr;index as i"  (click)="onClick(i+1)" >
+                        <mat-icon>
+                          {{showIcon(i)}}
+                        </mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td style="text-align: center;">
+                    <button type="submit" mat-raised-button color='accent'>Unesi</button> 
+                </td>
+            </tr>
+        </table>
+    </form>
+</mat-card>
+
+<mat-card class="card1" *ngIf="promeni">
+    <form (submit)="promenikom(promeniForm)" #promeniForm='ngForm' >
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <textarea matInput rows="6" name="komentar" placeholder="Komentar" maxlength="1000" [(ngModel)]="tekst"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: gray;">Ocena knjige</td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="zvezda" mat-icon-button  *ngFor="let ratingId of ratingArr;index as i"  (click)="onClick(i+1)" >
+                        <mat-icon>
+                          {{showIcon(i)}}
+                        </mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td style="text-align: center;">
+                    <button type="submit" mat-raised-button color='accent'>Promeni</button> 
+                </td>
+            </tr>
+        </table>
+    </form>
+</mat-card>
+
+
+    
+
+
+
+

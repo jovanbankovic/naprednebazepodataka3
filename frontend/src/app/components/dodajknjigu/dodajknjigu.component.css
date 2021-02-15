@@ -1,0 +1,36 @@
+mat-card{
+    width: 50%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-form-field {
+    width: 100%
+  }
+  
+  input[type="file"] {
+    visibility: hidden;
+  }
+  
+  .slika {
+    height: 7rem;
+    margin: 1rem 0;
+  }
+  
+  .slika img {
+    height: 100%;
+  }
+  
+  .poruka1 {
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+    color: red;
+  }
+
+  .poruka2 {
+    font-style: normal;
+    font-size: large;
+    font-weight: initial;
+  }
