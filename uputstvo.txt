@@ -1,0 +1,2 @@
+pre pokretanja u folderu frontend i backend u cmd ukucati npm install
+zatim u oba foldera npm start

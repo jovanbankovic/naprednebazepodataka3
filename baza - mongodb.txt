@@ -1,0 +1,556 @@
+db.users.insertMany([
+	{
+		ime: "admin",
+		prezime: "admin",
+		slikaPutanja: "assets/generic_person.jpg",
+		korime: "admin",
+		lozinka: "$2b$10$9T/YNYC5zvCL.C5crgg0JOUUGtFvC1ICx/R5wuAQPFQER.dpsxwiK",
+		datum: new Date("1993-06-08T22:00:00.000+00:00"),
+		grad: "admin",
+		drzava:"admin",
+		email:"admin@admin.com",
+		privilegije:false,
+		zahtev:false,
+		prihvacen:true,
+	},
+	{
+		ime: "Jovana",
+		prezime: "Petrovic",
+		slikaPutanja: "http://localhost:3000/images/jovana123-1600372797060.jpg",
+		korime: "jovana123",
+		lozinka: "$2b$10$k5LjSrkjJUoaQxeAIxFJYODjQlSV4PvJgbrx8tHP3wu92GUHLBOOO",
+		datum: new Date("1994-08-03T22:00:00.000+00:00"),
+		grad: "Valjevo",
+		drzava:"Srbija",
+		email:"jovana123@gmail.com",
+		privilegije:false,
+		zahtev:false,
+		prihvacen:true,
+	},
+	{
+		ime:"Marko",
+		prezime:"Nikolic",
+		slikaPutanja:"http://localhost:3000/images/marko123-1600373014382.jpg",
+		korime:"marko123",
+		lozinka:"$2b$10$M4G0nmcG7.kdluhvWAxgROtjikyhAT29Ozd/LB54vkHAMmm9Zmkri",
+		datum:new Date("1992-02-04T23:00:00.000+00:00"),
+		grad:"Vranje",
+		drzava:"Srbija",
+		email:"marko123@gmail.com",
+		privilegije:true,
+		zahtev:false,
+		prihvacen:true,
+	},
+	{
+		ime:"Petar",
+		prezime:"Petrovic",
+		slikaPutanja:"assets/generic_person.jpg",
+		korime:"petar123",
+		lozinka:"$2b$10$kMmhkD/LYC8FeKLI2EX14uPFP3Xghw4x0lw2iuqGkxh4CykuODemW",
+		datum:new Date("2001-12-12T23:00:00.000+00:00"),
+		grad:"Nis",
+		drzava:"Srbija",
+		email:"petar123@gmail.com",
+		privilegije:true,
+		zahtev:false,
+		prihvacen:true,
+	},
+	{
+		ime:"Milena",
+		prezime:"Jankovic",
+		slikaPutanja:"assets/generic_person.jpg",
+		korime:"milena123",
+		lozinka:"$2b$10$.atV8hjXQItHCCWKFw7ApuKhDRZTa0cx4Qxs9Mi1J2pZz7xjtGOci",
+		datum:new Date("1998-08-09T22:00:00.000+00:00"),
+		grad:"Beograd",
+		drzava:"Srbija",
+		email:"milena@gmail.com",
+		privilegije:false,
+		zahtev:false,
+		prihvacen:true,
+	}
+])
+
+
+db.genres.insertMany([
+	{
+		naziv: "klasik"
+	},
+	{
+		naziv: "fantastika"
+	},
+	{
+		naziv: "knjige za decu"
+	},
+	{
+		naziv: "istorija"
+	},
+	{
+		naziv: "ljubavni"
+	},
+	{
+		naziv: "triler"
+	},
+	{
+		naziv: "drama"
+	}	
+])
+
+
+db.books.insertMany([
+	{
+		autori: ["Herman Hese"],
+		zanrovi: ["klasik"],
+		slikaPutanja: "http://localhost:3000/images/stepski-vuk-1600373843751.jpg",
+		naziv: "Stepski vuk",
+		datum: new Date("1927-08-05T23:00:00.000+00:00"),
+		opis: "Stepskog vuka Hese je napisao 1927. godine. U toj biografiji duse svaka licnost je odraz jednog od sukoba autora sa samim sobom kao ogledalo neprikrivenog razdora i pometnje u samopoimanju.Ime glavnog junaka - Hari Haler jasno je obelezje dovoljno za indentifikaciju.Hari Haler ima mnogo toga zajednickog sa Heseom.",
+		prosek: 10,
+		zahtev: false,
+		odobrena: true
+	},
+	{
+		autori: ["Paulo Koeljo"],
+		zanrovi: ["drama"],
+		slikaPutanja: "http://localhost:3000/images/alhemicar-1600374475268.jpg",
+		naziv: "Alhemicar",
+		datum: new Date("2003-06-02T22:00:00.000+00:00"),
+		opis: "Roman Alhemičar stekao je posvećenu publiku širom sveta. Priča koja pleni svojom jednostavnošću i inspiriše svojom mudrošću prati mladog andaluzijskog pastira Santjaga, koji iz rodne Španije odlazi u egipatsku pustinju kako bi našao skriveno blago zakopano ispod piramida.Niko ne zna kakvo je blago u pitanju ni da li će Santjago uspeti da prevaziđe prepreke koje mu staju na put, ali ono što počinje kao potraga za svetovnim bogatstvima pretvara se u potragu za bogatstvom koje se nalazi u nama samima.",
+		prosek: 10,
+		zahtev: false,
+		odobrena: true
+	},
+	{
+		autori: ["J K Rouling"],
+		zanrovi: ["fantastika", "triler"],
+		slikaPutanja: "http://localhost:3000/images/hari-poter-i-red-feniksa-1600377109268.jpg",
+		naziv: "Hari poter i red feniksa",
+		datum: new Date("2005-09-13T22:00:00.000+00:00"),
+		opis: "Nakon napada dementora na Harija i njegovog rođaka Dadlija, profesori i čarobnjaci prinuđeni su da ponovo aktiviraju pokret otpora pod nazivom Red Feniksa. Na Dambldorovo insistiranje, Hari pokušava da zatvori svoj um od kontrole Lorda Voldemora učeći Oklumenciju sa zlokobnim profesorom Snejpom, a pri tom pokušava i da svoje prijatelje obuči odbrambenim činima da bi bili spremni za predstojeće bitke. Hoće li novoosnovana Dambldorova armija biti u stanju da se odupre Vodlemoru i spreči ga u njegovim mračnim namerama?",
+		prosek: 7.5,
+		zahtev: false,
+		odobrena: true
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		zanrovi: ["istorija", "drama"],
+		slikaPutanja: "http://localhost:3000/images/koreni-1600377454474.jpg",
+		naziv: "Koreni",
+		datum: new Date("1954-01-19T23:00:00.000+00:00"),
+		opis: "Smeštena u vreme političkih promena i previranja srpskog građanskog društva s kraja XIX i početkom XX veka, priča prati živote Aćima Katića, čoveka tradicionalnog kova i radikala, i njegovih sinova Vukašina i Đorđa. Budući političar i očeva nada, Vukašin se vraća sa studija u Parizu i saopštava da se ženi ćerkom liberala Tošića, Aćimovog političkog neprijatelja, i da prelazi u njegovu stranku. Aćim ga se odriče i, besan zbog sukoba sa sinom, poziva meštane u selu na dizanje bune. Drugi sin Đorđe, ugledan i bogat seljak, i njegova supruga Simka u isto vreme imaju bračne probleme jer godinama nemaju dece. U strahu od gašenja loze, Simka se odlučuje na očajnički potez: da zatrudni sa Đorđevim slugom.",
+		prosek: 9.5,
+		zahtev: false,
+		odobrena: true
+	},
+	{
+		autori: ["Dejvid Nikols"],
+		zanrovi: ["ljubavni"],
+		slikaPutanja: "assets/generic_book.jpg",
+		naziv: "Slatki rastanak",
+		datum: new Date("2016-07-07T22:00:00.000+00:00"),
+		opis: "Godina je 1997, a Čarli je jedan od onih dečaka koje kasnije ne prepoznajete na odeljenskim fotografijama. Nije dobro prošao na maturskom ispitu. Kod kuće se stara o ocu mada bi trebalo da je obrnuto, a ako uopšte i pomišlja na budućnost, čini to sa zebnjom.",
+		prosek: 0,
+		zahtev: false,
+		odobrena: false
+	},
+	{
+		autori: ["Rene Gijo"],
+		zanrovi: ["knjige za decu"],
+		slikaPutanja: "http://localhost:3000/images/bela-griva-1600378791342.jpg",
+		naziv: "Bela griva",
+		datum: new Date("1953-12-18T23:00:00.000+00:00"),
+		opis: "Poznati roman za decu koji govori o velikom prijateljstvu između dečaka i ždrebeta. Pošto su mu naneli mnogo bola, ždrebe nije volelo ljude. Međutim, dečak Folko, veliki ljubitelj konja, pripitomljava Belu Grivu, pružajući mu veliku ljubav i pažnju, i doživljava sa njim brojne avanture. Siromašni dečak želi do tančina da upozna prirodu konja, a u tome mu pomaže stari prijatelj Antonio. Ova uzbudljiva i dirljiva priča pokazuje da prijateljstvo između čoveka i životinje zaista nema granice.",
+		prosek: 8.67,
+		zahtev: false,
+		odobrena: true
+	},
+	{
+		autori: ["Ivo Andric"],
+		zanrovi: ["istorija"],
+		slikaPutanja: "http://localhost:3000/images/na-drini-cuprija-1600422104241.jpg",
+		naziv: "Na Drini cuprija",
+		datum: new Date("1945-04-06T23:00:00.000+00:00"),
+		opis: "Najpoznatiji roman Iva Andrića, Na Drini ćuprija, hronološki opisuje svakodnevni život višegradske kasabe, koja se nalazi na obali rijeke Drine, gdje su živjeli zajedno Turci i hrišćani. Glavni lik ovog romana je most koji kod Višegrada spaja dvije obale Drine, odnosno Bosnu sa Srbijom, Zapad sa Istokom. Radnja romana prati četiri vijeka zbivanja oko mosta, koji je izgradio veliki vezir Mehmed paša Sokolović. Mehmed je srpski dječak koji je na silu odveden u tursku vojsku i poturčen da bi se kasnije uzdigao ljestvicama vlasti i postao prvi do sultana. Kao čovjek od uticaja, odlučio je da u rodnom kraju podigne zadužbinu, kameni most na jedanaest lukova. Most predstavlja centralni simbol romana. Sve se mijenja i prolazi, samo most ostaje da ukaže na prolaznost ljudskih sudbina.",
+		prosek: 9,
+		zahtev: false,
+		odobrena: true
+	}
+])
+
+
+db.follows.insertMany([
+	{
+		pratilac: "marko123",
+		praceni: "jovana123"
+	},
+	{
+		pratilac: "marko123",
+		praceni: "milena123"
+	},
+	{
+		pratilac: "milena123",
+		praceni: "marko123"
+	},
+	{
+		pratilac: "jovana123",
+		praceni: "milena123"
+	},
+	{
+		pratilac: "jovana123",
+		praceni: "marko123"
+	},
+	{
+		pratilac: "petar123",
+		praceni: "jovana123"
+	},
+	{
+		pratilac: "petar123",
+		praceni: "milena123"
+	},
+	{
+		pratilac: "petar123",
+		praceni: "marko123"
+	}
+])
+
+
+db.comments.insertMany([
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "marko123",
+		ocena: 9,
+		tekst: "Prelepa knjiga koja je obelezila moje detinjstvo"
+	},
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "milena123",
+		ocena: 8,
+		tekst: "Zanimljiva prica :)"
+	},
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "milena123",
+		ocena: 10,
+		tekst: "Omiljena moja knjiga!"
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		naziv: "Koreni",
+		korime: "milena123",
+		ocena: 9,
+		tekst: "Sa svakim novim citanjem, ova knjiga me ponovo odusevi."
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		naziv: "Koreni",
+		korime: "jovana123",
+		ocena: 10,
+		tekst: "Dobrica Cosic - najbolji pisac svoga vremena!"
+	},
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "petar123",
+		ocena: 9,
+		tekst: "Knjiga za sva vremena!"
+	},
+	{
+		autori: ["Paulo Koeljo"],
+		naziv: "Alhemicar",
+		korime: "petar123",
+		ocena: 10,
+		tekst: "Alhemicar- neponovljiva i neprevazidjena knjiga!"
+	},
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "petar123",
+		ocena: 5,
+		tekst: "Nisam toliko odusevljen koliko sam mislio da cu biti :("
+	},
+	{
+		autori: ["Herman Hese"],
+		naziv: "Stepski vuk",
+		korime: "petar123",
+		ocena: 10,
+		tekst: "Svaki komentar o ovoj knjizi je suvisan."
+	},
+	{
+		autori: ["Ivo Andric"],
+		naziv: "Na Drini cuprija",
+		korime: "marko123",
+		ocena: 9,
+		tekst: "Fasciniran sam pricom i stilom naseg nobelovca"
+	}
+])
+
+
+db.lists.insertMany([
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "marko123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	},
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "marko123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		naziv: "Koreni",
+		korime: "marko123",
+		status: "trenutno",
+		strana: 376,
+		procitano: 65
+	},
+	{
+		autori: ["Herman Hese"],
+		naziv: "Stepski vuk",
+		korime: "marko123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	},
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "milena123",
+		status: "trenutno",
+		strana: 153,
+		procitano: 87
+	},
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "milena123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		naziv: "Koreni",
+		korime: "milena123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Dobrica Cosic"],
+		naziv: "Koreni",
+		korime: "jovana123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "jovana123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	},
+	{
+		autori: ["Paulo Koeljo"],
+		naziv: "Alhemicar",
+		korime: "jovana123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	},
+	{
+		autori: ["Rene Gijo"],
+		naziv: "Bela griva",
+		korime: "petar123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Paulo Koeljo"],
+		naziv: "Alhemicar",
+		korime: "petar123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["J K Rouling"],
+		naziv: "Hari poter i red feniksa",
+		korime: "petar123",
+		status: "trenutno",
+		strana: 457,
+		procitano: 234
+	},
+	{
+		autori: ["Herman Hese"],
+		naziv: "Stepski vuk",
+		korime: "petar123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Ivo Andric"],
+		naziv: "Na Drini cuprija",
+		korime: "marko123",
+		status: "procitana",
+		strana: 100,
+		procitano: 100
+	},
+	{
+		autori: ["Ivo Andric"],
+		naziv: "Na Drini cuprija",
+		korime: "milena123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	},
+	{
+		autori: ["Ivo Andric"],
+		naziv: "Na Drini cuprija",
+		korime: "jovana123",
+		status: "trenutno",
+		strana: 333,
+		procitano: 100
+	},
+	{
+		autori: ["Herman Hese"],
+		naziv: "Stepski vuk",
+		korime: "jovana123",
+		status: "dodata",
+		strana: 100,
+		procitano: 0
+	}
+])
+
+
+db.events.insertMany([
+	{
+		zahtevi: [],
+		ucesnici: ["marko123", "milena123"],
+		autori: ["marko123", "marko123", "milena123", "milena123"],
+		poruke: ["Danas cemo malo razgovarati o nasem nobelovcu.", "Jedan od najboljih pisaca 21. veka ", "Slazem se u potpunosti sa tobom.", "Moja omiljena knjiga je 'Znakovi pored puta'."],
+		naziv: "Dela Ive Andrica",
+		pocetak: new Date("2020-09-18T14:10:28.353+00:00"),
+		kraj: null,
+		opis: "Komentarisanje naseg nobelovca i njegovih vanvremenskih dela",
+		kreator: "marko123",
+		tip: "javno",
+		status: "aktivno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["petar123", "milena123", "jovana123"],
+		autori: ["petar123", "milena123", "jovana123", "milena123", "petar123"],
+		poruke: ["Kada Vam vise prija da citate. Da li je to ujutru ili uvece?", "Pa mislim da to zavisi od coveka. Nekom ce prijatnije biti ujutru pre posla, a nekome uvece pred spavanje.", "Slazem se sa Milenom. Meni  vise prija uvece kada se sve stisa i onda polako i na miru utonem u neki drugi svet", "Meni je lepse ujutru, pre svih obaveza. Nekako volim da mi dan zapocne na lep nacin.", "I ja sam pri misljenju da jutro ne moze poceti bolje nego citanjem knjige."],
+		naziv: "Citanje",
+		pocetak: new Date("2020-09-01T10:00:00.000+00:00"),
+		kraj: new Date("2020-09-01T12:00:00.000+00:00"),
+		opis: "Komentari na temu 'Kada najradije citate?'",
+		kreator: "petar123",
+		tip: "javno",
+		status: "zavrseno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["marko123"],
+		autori: [],
+		poruke: [],
+		naziv: "Carls Bukovski",
+		pocetak: new Date("2020-09-25T15:50:00.000+00:00"),
+		kraj: new Date("2020-09-25T20:00:00.000+00:00"),
+		opis: "Carls Bukovski - zivot i delo",
+		kreator: "marko123",
+		tip: "javno",
+		status: "neaktivno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["petar123"],
+		autori: [],
+		poruke: [],
+		naziv: "Sajam knjiga",
+		pocetak: new Date("2020-09-23T18:00:00.000+00:00"),
+		kraj: new Date("2020-09-26T15:00:00.000+00:00"),
+		opis: "Razgovor na temu: 'Da li ce ove godine biti sajma knjiga?'",
+		kreator: "petar123",
+		tip: "javno",
+		status: "neaktivno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["marko123", "milena123", "jovana123"],
+		autori: ["milena123", "milena123", "marko123", "milena123", "jovana123"],
+		poruke: ["Moja nova knjiga koja ce biti dostupna uskoro se zove 'Svetlo na kraju tunela'", "Inspirisana je pricom o mladom coveku i njegovom trnovitom putu ka uspehu", "Zaista mi se svidja naslov knjige i nadam se da ce izadji u sto skorije vreme", "Ovo je na neki nacin prica  o unutrasnjoj borbi coveka sa samim sobom", "Mislim da ce ova knjiga do sada biti najbolja jer si sa godina stekla iskustvo i stil pisanja ti se konstantno unapredjivao :)"],
+		naziv: "Nova knjiga",
+		pocetak: new Date("2020-09-15T20:00:42.223+00:00"),
+		kraj: new Date("2020-09-15T20:10:00.000+00:00"),
+		opis: "Misljenja i citanje odlomka nove knjige 'Svetlo na kraju tunela'",
+		kreator: "milena123",
+		tip: "privatno",
+		status: "zavrseno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["jovana123", "milena123"],
+		autori: ["jovana123", "jovana123", "jovana123", "milena123", "milena123"],
+		poruke: ["Vecita debata koja se vodi. Sta je po Vasem misljenju bolje - knjiga ili film?", "Ja vise volim knjigu, jer se nekako poistovetim sa junacima", "Film kratko traje i nemas neko iscekivanje u njemu, jer se relativno brzo sve sazna", "Takodje vise volim knjigu, jer je to uzbudjenje i razmisljanje o tome sta ce se sledece desiti veoma interesantno ", "Masta mi proradi i kroz glavu mi prolaze hiljade misli"],
+		naziv: "Knjiga ili film?",
+		pocetak: new Date("2020-09-18T20:08:42.796+00:00"),
+		kraj: null,
+		opis: "Knjiga i film - slicnosti i razlike",
+		kreator: "jovana123",
+		tip: "privatno",
+		status: "zatvoreno"
+	},
+	{
+		zahtevi: ["milena123"],
+		ucesnici: ["jovana123", "marko123", "petar123"],
+		autori: ["petar123"],
+		poruke: ["Svako ko zeli da donira knjige novoj biblioteci je dobrodosao."],
+		naziv: "Otvaranje nove biblioteke",
+		pocetak: new Date("2020-09-18T20:16:57.223+00:00"),
+		kraj: null,
+		opis: "Otvara se nova biblioteka u gradu. Potrebna je pomoc oko nabavljanja knjiga",
+		kreator: "petar123",
+		tip: "privatno",
+		status: "aktivno"
+	},
+	{
+		zahtevi: [],
+		ucesnici: ["jovana123"],
+		autori: [],
+		poruke: [],
+		naziv: "Godina prodje, dan nikad",
+		pocetak: new Date("2020-09-26T15:00:00.000+00:00"),
+		kraj: new Date("2020-09-27T15:00:00.000+00:00"),
+		opis: "Razgovor na temu prolaznosti i dozivljaja vremena",
+		kreator: "jovana123",
+		tip: "privatno",
+		status: "neaktivno"
+	}
+])
+
+
+
+
+
+
+
+
+
+
+
+
