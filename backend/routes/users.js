@@ -416,13 +416,13 @@ const MIME_TYPE_MAP = {
       port: 587,
       secure: false, 
       auth: {
-        user: "projekatpia2020@gmail.com",
-        pass: "Projekat123$"
+        user: "napredne.projekat@gmail.com",
+        pass: "Napredne123!"
       }
     });
   
     let mailOptions = {
-      from: 'projekatpia2020@gmail.com', // sender address
+      from: 'napredne.projekat@gmail.com', // sender address
       to: user.email, // list of receivers
       subject: "Promena lozinke", // Subject line
       html: `<h1>Kliknite na link za promenu:</h1><br>
